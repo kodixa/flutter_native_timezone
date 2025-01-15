@@ -2,18 +2,19 @@ group 'com.whelksoft.flutter_native_timezone'
 version '1.0-SNAPSHOT'
 
 buildscript {
-    ext.kotlin_version = '1.5.30'
+    ext.kotlin_version = '1.5.31'
     repositories {
         google()
         mavenCentral()
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:4.2.1'
+        classpath 'com.android.tools.build:gradle:7.0.4'  // Projenizdeki sürüme uyumlu hale getirildi
+        classpath 'com.google.gms:google-services:4.4.2'  // Projenizdeki sürüme uyumlu hale getirildi
     }
 }
 
-rootProject.allprojects {
+allprojects {
     repositories {
         google()
         mavenCentral()
@@ -25,33 +26,33 @@ apply plugin: 'kotlin-android'
 
 android {
     namespace 'com.whelksoft.flutter_native_timezone'
-    compileSdkVersion 30
+    compileSdkVersion 31  // Projenizdeki sürüme uyumlu hale getirildi
 
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
     }
     defaultConfig {
-        targetSdkVersion 30
-        minSdkVersion 16
+        targetSdkVersion 31  // Projenizdeki sürüme uyumlu hale getirildi
+        minSdkVersion 21  // Projenizdeki sürüme uyumlu hale getirildi
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     lintOptions {
         disable 'InvalidPackage'
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_17
-        targetCompatibility JavaVersion.VERSION_17
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
     kotlinOptions {
-        jvmTarget = "17"
+        jvmTarget = '1.8'
     }
 }
 
 dependencies {
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 }
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_17
-    targetCompatibility = JavaVersion.VERSION_17
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
 }
